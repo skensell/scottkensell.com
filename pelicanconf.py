@@ -16,11 +16,11 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
 # Blogroll
-LINKS =  (('Prezi.com', 'http://prezi.com/'),)
+LINKS =  (('prezi.com', 'http://prezi.com/'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (('github', 'https://github.com/skensell'),
+        ('prezi', 'https://prezi.com/about/scott-kensell/'),)
 
 DEFAULT_PAGINATION = False
 
