@@ -1,0 +1,6 @@
+set -e
+
+source ../virtualenvs/pelican/bin/activate
+
+make html
+make devserver

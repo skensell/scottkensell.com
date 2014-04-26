@@ -1,0 +1,5 @@
+set -e
+
+source ../virtualenvs/pelican/bin/activate
+
+make stopserver

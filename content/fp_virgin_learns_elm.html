@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>FP virgin learns Elm</title>
+<meta name="date" content="2014-04-25 21:59" />
+<meta name="category" content="Functional Programming" />
+<meta name="tags" content="FP, FRP, Elm, Functional" />
+<meta name="author" content="Scott Kensell" />
+<meta name="summary" content="Having no prior experience with functional programming, I participated in Prezi's Elm challenge where I had to build the game Snake in a week." />
+</head>
+
+<body>
+<p>Here I'm going to try to insert a div element.</p>
+
+<div id="ScottsSnake" style="width:50%; height:210px"></div>
+
+<p>And Here I am after the div.</p>
+
+<!-- Embed the snake game -->
+<script type="text/javascript" src="http://elm-lang.org/elm-runtime.js"></script>
+<script type='text/javascript' src='{filename}javascript/ScottsSnake.js'></script>
+<script type='text/javascript'>
+var div = document.getElementById('ScottsSnake');
+Elm.embed(Elm.ScottsSnake, div);
+</script>
+
+<!-- Disable arrow keys for scrolling so that the game can use them -->
+<script type='text/javascript'>
+window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
+</script>
+</body>
+
+</html>
