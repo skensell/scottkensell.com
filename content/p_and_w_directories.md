@@ -1,7 +1,6 @@
 Title: The p and w directories 
 Date: 2014-03-29 21:20
 Category: UNIX
-Tags: organization, terminal
 Slug: the-p-and-w-directories
 Author: Scott Kensell
 Summary: A simple strategy for organizing personal and work directories.

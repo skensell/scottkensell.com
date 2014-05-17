@@ -28,3 +28,6 @@ DEFAULT_PAGINATION = False
 #RELATIVE_URLS = True
 
 STATIC_PATHS = ['images', 'javascript']
+
+THEME = "/Users/skensell/p/pelican-themes/SoMA"
+
