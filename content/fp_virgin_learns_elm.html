@@ -6,17 +6,107 @@
 <!-- <meta name="tags" content="FP, FRP, Elm, Functional" /> -->
 <meta name="author" content="Scott Kensell" />
 <meta name="summary" content="Having no prior experience with functional programming, I participated in Prezi's Elm challenge where I had to build the game Snake in a week." />
+
 </head>
 
 <body>
-<p>Here I'm going to try to insert a div element.</p>
 
-<div id="ScottsSnake" style="width:50%; height:210px"></div>
+<p>
+Sunday evening our CTO writes the following to our developers forum:
+</p>
+<blockquote>
+  Reply to if you want to learn Elm, FP and FRP.
+  This week you come: 5 times, every day, 1pm-2pm.
+  You can bring your food/brown bag...Friday we will be present a html5 snake.
+</blockquote>
 
-<p>And Here I am after the div.</p>
+<p>
+Four days of wtf, one evening of synthesizing others' code, and one day of refactoring later, I'm playing this little game here (refresh the page to restart):
+</p>
+
+<div id="ScottsSnake" style="margin: 0 auto; width:50%; height:221px; margin-bottom: 10px"></div>
+
+<p>
+Learning functional programming (FP) and functional reactive programming (FRP) had been on my long-term roadmap anyways. So I figured why wait?
+</p>
+
+<h3 style="text-align: center">Why FP?</h3>
+
+<p>
+I've been learning Objective-C pretty religiously for the last 4 months as a new member in the iOS team at Prezi. Before Objective-C, I was pretty familiar with Python and C, and now I feel quite comfortable with the object-oriented paradigm. My only FP experience would be my familiarity with Python's map, filter, reduce and lambda functions (if that counts).
+</p>
+
+<p>
+It seems like the whole developer world is talking about FP. One of my friends summarized the <a href="http://craft-conf.com/2014/">CRAFT conference</a> to me as "Yeah one of the overarching themes was definitely the shift from OOP to FP."
+</p>
+
+<p>
+Why should an Objective-C/iOS developer care about FRP? Well, at Prezi we are using <a href="https://github.com/ReactiveCocoa/ReactiveCocoa">Reactive Cocoa</a> more and more. Our experienced Objective-C developers seem to be writing almost exclusively with Reactive Cocoa. It seems that everybody is adopting <a href="http://en.wikipedia.org/wiki/Reactive_extensions">reactive programming</a> principles nowadays saying that it leads to cleaner, more <a href="http://en.wikipedia.org/wiki/Declarative_programming">declarative</a> code.
+</p>
+
+<p>
+Justification aside, it's always fun to learn new technologies right?
+</p>
+
+<h3 style="text-align: center">Elm</h3>
+
+<p>
+Elm left a positive first impression on me. It's a functional language which compiles to HTML/CSS/Javascript which in itself is pretty cool. But if you need more reasons, here's a few:
+</p>
+
+<p>
+<strong>Whitespace.</strong> Not a fan of braces? Yeah, me neither. Python enthusiasts should feel at home. I mean who can resist an if-else branch which looks like this:
+</p>
+
+
+<div>
+  <pre><code> directionFromArrows arrows direction =
+  if  | arrows.x < 0 -> Left
+      | arrows.x > 0 -> Right
+      | arrows.y > 0 -> Up
+      | arrows.y < 0 -> Down
+      | otherwise -> direction </code></pre>
+</div>
+
+
+
+
+
+
+
+
+Introduction:
+  - describe week
+  - show output
+  - Why FRP? ... ReactiveCocoa + prepare for the paradigm shift.
+
+Why Elm?
+  - If a functional language compiling to html/css/javascript isn't enough for you, here's some more reasons why elm is pretty cool..
+
+Getting used to FP syntax
+  - syntax advice
+
+Getting used to FRP and Signals:
+  - lessons learned with signals.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- Embed the snake game -->
-<script type="text/javascript" src="http://elm-lang.org/elm-runtime.js"></script>
+<script type="text/javascript" src='{filename}javascript/elm-runtime.js'></script>
 <script type='text/javascript' src='{filename}javascript/ScottsSnake.js'></script>
 <script type='text/javascript'>
 var div = document.getElementById('ScottsSnake');
@@ -32,6 +122,11 @@ window.addEventListener("keydown", function(e) {
     }
 }, false);
 </script>
+
+<link rel="stylesheet" href="{filename}javascript/highlight/styles/solarized_light.css">
+<script src="{filename}javascript/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
 </body>
 
 </html>
