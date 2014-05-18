@@ -15,9 +15,6 @@ FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
-# Blogroll
-LINKS =  (('prezi.com', 'http://prezi.com/'),)
-
 # Social widget
 SOCIAL = (('github', 'https://github.com/skensell'),
         ('prezi', 'https://prezi.com/about/scott-kensell/'),)
@@ -29,5 +26,5 @@ DEFAULT_PAGINATION = False
 
 STATIC_PATHS = ['images', 'javascript']
 
-THEME = "/Users/skensell/p/pelican-themes/SoMA"
-
+THEME = "/Users/skensell/p/pelican-themes/SoMA2"
+SITESUBTITLE = "scottkensell.com"
