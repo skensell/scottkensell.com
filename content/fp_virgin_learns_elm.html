@@ -37,11 +37,11 @@ I've been learning Objective-C pretty religiously for the last 4 months as a new
 </p>
 
 <p>
-It seems like the whole developer world is talking about FP. One of my friends summarized the <a href="http://craft-conf.com/2014/">CRAFT conference</a> to me as "Yeah one of the overarching themes was definitely the shift from OOP to FP."
+It seems like the whole developer world is talking about FP. One of my friends summarized the <a target="_blank" href="http://craft-conf.com/2014/">CRAFT conference</a> to me as "Yeah one of the overarching themes was definitely the shift from OOP to FP."
 </p>
 
 <p>
-Why should an Objective-C/iOS developer care about FRP? Well, at Prezi we are using <a href="https://github.com/ReactiveCocoa/ReactiveCocoa">Reactive Cocoa</a> more and more. Our experienced Objective-C developers seem to be writing almost exclusively with Reactive Cocoa. It seems that everybody is adopting <a href="http://en.wikipedia.org/wiki/Reactive_extensions">reactive programming</a> principles nowadays saying that it leads to cleaner, more <a href="http://en.wikipedia.org/wiki/Declarative_programming">declarative</a> code.
+Why should an Objective-C/iOS developer care about FRP? Well, at Prezi we are using <a target="_blank" href="https://github.com/ReactiveCocoa/ReactiveCocoa">Reactive Cocoa</a> more and more. Our experienced Objective-C developers seem to be writing almost exclusively with Reactive Cocoa. It seems that everybody is adopting <a target="_blank" href="http://en.wikipedia.org/wiki/Reactive_extensions">reactive programming</a> principles nowadays saying that it leads to cleaner, more <a target="_blank" href="http://en.wikipedia.org/wiki/Declarative_programming">declarative</a> code.
 </p>
 
 <p>
@@ -55,24 +55,46 @@ Elm left a positive first impression on me. It's a functional language which com
 </p>
 
 <p>
-<strong>Whitespace.</strong> Not a fan of braces? Yeah, me neither. Python enthusiasts should feel at home. I mean who can resist an if-else branch which looks like this:
+<strong>Whitespace.</strong> Not a fan of braces? Yeah, me neither. I mean come on, who can resist a function definition which has neither parentheses nor braces:
+
+<div>
+  <pre><code>flipDirection : Direction -> Direction
+flipDirection direction =
+  case direction of
+    Up -> Down
+    Down -> Up
+    Left -> Right
+    Right -> Left</code></pre>
+</div>
+
+<p>
+<strong>UNIX-like pipelines.</strong> For those who like composing functions, Elm offers the <code>|></code> operator as an alternative to grouping arguments with parentheses.
+</p>
+
+<div>
+  <pre><code>drawCell: Color -> Position -> Form
+drawCell color cell = rect 10 10 |> filled color
+                                 |> move (toFloat cell.x*10, toFloat cell.y*10)
+                                 |> move (-92,0)</code></pre>
+</div>
+
+<p>
+<strong>Natural separation of concerns.</strong> As I polished up my snake game, the code I had written naturally fell into one of 3 categories: logic, rendering, and <a href="#signals">signals</a>. I thought I had gotten lucky, but then I heard Elm creator Evan Czaplicki mention in a <a target="_blank" href="http://www.ustream.tv/recorded/46672791">talk</a> that this usually happens. The <code>main</code> function brings these three branches together, e.g.
 </p>
 
 
 <div>
-  <pre><code> directionFromArrows arrows direction =
-  if  | arrows.x < 0 -> Left
-      | arrows.x > 0 -> Right
-      | arrows.y > 0 -> Up
-      | arrows.y < 0 -> Down
-      | otherwise -> direction </code></pre>
+  <pre><code>main : Signal Element
+main = lift render gameStateSignal
+
+gameStateSignal : Signal GameState
+gameStateSignal = foldp (nextState board) (GameOn startSnake startApple) wrappedSignal
+
+render:GameState -> Element
+render state = case state of
+    GameOn snake apple -> drawCells snake.cells apple
+    GameOver score   -> asText ("GameOver. Snake Length: " ++ (show score)) </code></pre>
 </div>
-
-
-
-
-
-
 
 
 Introduction:
