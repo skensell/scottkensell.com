@@ -21,41 +21,48 @@ Sunday evening our CTO writes the following to our developers forum:
 </blockquote>
 
 <p>
-Four days of wtf, one evening of synthesizing others' code, and one day of refactoring later, I'm playing this little game here (refresh the page to restart):
+Learning functional programming (FP) and functional reactive programming (FRP) had been on my long-term roadmap anyways. So I figured -- why wait?
+</p>
+
+<h4 style="text-align: center">Output of the week</h4>
+
+<p>
+My week of functional reactive snake broke down into 2 days adjusting to Elm syntax and the functional style, 2 days of staring confused as my colleagues discussed signal graphs, one evening reading others' code and the Elm documentation, and finally one solid day of writing my own code and refactoring. In the end, I felt like I was starting to get the hang of it, and I was proud that I produced the following game (refresh the page to restart):
 </p>
 
 <div id="ScottsSnake" style="margin: 0 auto; width:50%; height:221px; margin-bottom: 10px"></div>
 
+<h4 style="text-align: center">Why FP?</h4>
+
 <p>
-Learning functional programming (FP) and functional reactive programming (FRP) had been on my long-term roadmap anyways. So I figured why wait?
+Why should I care about FP?  What's the benefit for me?
 </p>
-
-<h3 style="text-align: center">Why FP?</h3>
-
 <p>
-I've been learning Objective-C pretty religiously for the last 4 months as a new member in the iOS team at Prezi. Before Objective-C, I was pretty familiar with Python and C, and now I feel quite comfortable with the object-oriented paradigm. My only FP experience would be my familiarity with Python's map, filter, reduce and lambda functions (if that counts).
-</p>
-
-<p>
-It seems like the whole developer world is talking about FP. One of my friends summarized the <a target="_blank" href="http://craft-conf.com/2014/">CRAFT conference</a> to me as "Yeah one of the overarching themes was definitely the shift from OOP to FP."
+Honestly the sheer number of people I hear talking about FP is enough to spark my curiosity and give it a try. A friend summarized the <a target="_blank" href="http://craft-conf.com/2014/">CRAFT conference</a> saying "Yeah one of the overarching themes was definitely the shift from OOP to FP."
 </p>
 
 <p>
-Why should an Objective-C/iOS developer care about FRP? Well, at Prezi we are using <a target="_blank" href="https://github.com/ReactiveCocoa/ReactiveCocoa">Reactive Cocoa</a> more and more. Our experienced Objective-C developers seem to be writing almost exclusively with Reactive Cocoa. It seems that everybody is adopting <a target="_blank" href="http://en.wikipedia.org/wiki/Reactive_extensions">reactive programming</a> principles nowadays saying that it leads to cleaner, more <a target="_blank" href="http://en.wikipedia.org/wiki/Declarative_programming">declarative</a> code.
+But why should I care about FP if my focus is on Objective-C and iOS development?
 </p>
-
+<p>
+My main motivation is to be able to use the <a target="_blank" href="https://github.com/ReactiveCocoa/ReactiveCocoa">Reactive Cocoa</a> library. At Prezi we are using it so much now that our experienced Objective-C developers seem to be writing almost exclusively in Reactive Cocoa.  Most of our teams are adopting <a target="_blank" href="http://en.wikipedia.org/wiki/Reactive_extensions">reactive programming</a> principles nowadays saying that it leads to cleaner, more <a target="_blank" href="http://en.wikipedia.org/wiki/Declarative_programming">declarative</a> code. I was a little surprised to find out that even our backend API team is using reactive programming, thereby quashing my assumption that such a paradigm is only useful in client code.
+</p>
 <p>
 Justification aside, it's always fun to learn new technologies right?
 </p>
+<h4 style="text-align: center">FP Virgin</h4>
+<p>
+I've been learning Objective-C/Cocoa pretty religiously for the last 4 months as a new member in the iOS team at Prezi. Before Objective-C, I was pretty familiar with Python and C, and now I feel quite comfortable with the object-oriented paradigm. My only FP experience would be my familiarity with Python's map, filter, reduce and lambda functions (if that counts).
+</p>
 
-<h3 style="text-align: center">Elm</h3>
+<h4 style="text-align: center">Elm</h4>
 
 <p>
-Elm left a positive first impression on me. It's a functional language which compiles to HTML/CSS/Javascript which in itself is pretty cool. But if you need more reasons, here's a few:
+Elm left a positive first impression on me. It's a functional language which compiles to HTML/CSS/Javascript which in itself is pretty cool. But if you need more reasons to get excited about Elm, here's a few.
 </p>
 
 <p>
-<strong>Whitespace.</strong> Not a fan of braces? Yeah, me neither. I mean come on, who can resist a function definition which has neither parentheses nor braces:
+<strong>Whitespace.</strong> Not a fan of braces? Me neither. I mean come on, who can resist a function definition which has neither parentheses nor braces:
 
 <div>
   <pre><code>flipDirection : Direction -> Direction
@@ -68,7 +75,7 @@ flipDirection direction =
 </div>
 
 <p>
-<strong>UNIX-like pipelines.</strong> For those who like composing functions, Elm offers the <code>|></code> operator as an alternative to grouping arguments with parentheses.
+<strong>UNIX-like pipelines.</strong> For those who like composing or chaining functions, Elm offers the <code>|></code> operator as an alternative to grouping arguments with parentheses.
 </p>
 
 <div>
@@ -79,9 +86,64 @@ drawCell color cell = rect 10 10 |> filled color
 </div>
 
 <p>
-<strong>Natural separation of concerns.</strong> As I polished up my snake game, the code I had written naturally fell into one of 3 categories: logic, rendering, and <a href="#signals">signals</a>. I thought I had gotten lucky, but then I heard Elm creator Evan Czaplicki mention in a <a target="_blank" href="http://www.ustream.tv/recorded/46672791">talk</a> that this usually happens. The <code>main</code> function brings these three branches together, e.g.
+<strong>Natural separation of concerns.</strong> As I polished up my snake game, the code I had written naturally fell into one of 3 categories: model-logic, rendering, and <a href="#signals">signals</a>. I thought I had gotten lucky, but then I heard Elm creator Evan Czaplicki mention in a <a target="_blank" href="http://www.ustream.tv/recorded/46672791">talk</a> that this usually happens. The <code>main</code> function brings these three branches together.
 </p>
 
+
+<h4 style="text-align: center">FP Syntax</h4>
+
+<p>
+The functional syntax at first sight has a few oddities.
+</p>
+
+<p>
+<strong>Arrows.</strong>  To declare the type of a function you say something like <code>foo:int -> bool -> float</code>. This was really annoying me until I realized that the majority of the time you can read it like a C function declaration <code>float foo(int, bool)</code>. This isn't a perfect analogy because foo doesn't require 2 arguments. It's perfectly acceptable to pass foo just an int, and it will return a function which takes a bool and returns a float. In other words, the return type of a function is either the right most type (like float in this example) or a function with a signature equal to some suffix of the original signature.
+</p>
+
+<p>
+<strong>Anonymous functions.</strong> Many languages support lambda functions, but when you write in FP you are somehow forced to use them more often.  And what surprised me is how few characters are necessary to define one. For example, in Python I have to write <code>lambda x, y : x + y</code> whereas in Elm I write <code>\x y -> x + y</code>.
+</p>
+
+<p>
+<strong>No for loops, no mutable objects.</strong> It's tough to change your way of thinking from "I'll just create a helper array which I populate using a for loop" to "I'll map my array through this function and then this function." Even doing a simple thing like checking for containment can look a little funny:
+</p>
+
+<div><pre><code>containsCell : Position -> [Position] -> Bool
+containsCell c cells = length (filter (\cell -> sameCell c cell) cells) >= 1</code></pre></div>
+
+<h4 style="text-align: center">Signals</h4>
+
+<p>
+Wrapping my brain around signals and the transformations you can apply to them was probably the most difficult part of the week. Here's what I managed to understand:
+</p>
+
+<p>
+<strong>Signals are signals.</strong> What does a real-world signal do?  It emits values over time. Like a heartbeat or a polygraph, a signal in FRP is just emitting values of a specified type over time.
+</p>
+
+<p>
+<strong>Signals track events.</strong> Elm's standard library includes the Time, Http, Keyboard, and Mouse libraries where you are likely to find most of the signals you'll ever need. To create your own signal or transform a given signal you can make use of the the -- wait for it -- <em>Signal</em> library.
+</p>
+
+<p>
+<strong>Once you go signal you never go back.</strong> I'm not talking about how addictive FRP is, rather the <code>lift</code> function in Elm. Because signals themselves persist (while their emitted values may change) it doesn't make sense to write a function which takes a signal and returns a nonsignal (which value of the signal would it use?). Instead you have functions which operate on nonsignal types and then you have functions which transform signals (take 1 or more signals and return a signal).
+</p>
+
+<p>
+Elm's <code>lift</code> function glues the nonsignal and signal parts of your program together.  Its type is
+</p>
+<div><pre><code>lift : (a -> b) -> Signal a -> Signal b</code></pre></div>
+<p>
+Here a and b refer to an arbitrary type. So the <code>lift</code> function can transform your function <code>f:Int->Bool</code> into <code>f':Signal Int -> Signal Bool</code> which you can then apply to a signal like <code>Mouse.x</code> for example.
+</p>
+
+<p>
+This is where the natural separation of concerns comes from.  You write your normal functions, then eventually you apply lift functions to integrate your model with signals, but once you're writing functions on the level of signals, there's no going back.
+</p>
+
+<p>
+<strong>All roads lead to main.</strong> Your program's logic can be represented by a signal graph where all roads eventually lead to the master <code>main</code> function which has type <code>Signal Element</code>.  Here's an example of main and lift in action (maybe this is specific to Elm and not FRP):
+</p>
 
 <div>
   <pre><code>main : Signal Element
@@ -96,20 +158,21 @@ render state = case state of
     GameOver score   -> asText ("GameOver. Snake Length: " ++ (show score)) </code></pre>
 </div>
 
+<p>
+<strong>Signals can remember.</strong> To maintain some sort of state in the stateless world of FP, you have to use the <code>foldp</code> function.  Whenever a signal emits a value, it takes the previous value and the current value to do something interesting. So <code>foldp</code> to me means remembering and state-modification.
+</p>
 
-Introduction:
-  - describe week
-  - show output
-  - Why FRP? ... ReactiveCocoa + prepare for the paradigm shift.
+<h4 style="text-align: center">Conclusion</h4>
 
-Why Elm?
-  - If a functional language compiling to html/css/javascript isn't enough for you, here's some more reasons why elm is pretty cool..
+<p>
+I really liked Elm and would be glad to work more with it. But I think the more important point is that it's given me a solid introduction into the world of FRP and in turn I'm more confident in using things like the Reactive Cocoa library.
+</p>
 
-Getting used to FP syntax
-  - syntax advice
-
-Getting used to FRP and Signals:
-  - lessons learned with signals.
+<p>
+<a target="_blank" href="http://elm-lang.org/learn/What-is-FRP.elm">Evan's explanation of FRP</a>
+<br/>
+<a target="_blank" href="https://gist.github.com/skensell/66f18bdc1c2b604ab93f">complete code for my snake game</a>
+</p>
 
 
 
