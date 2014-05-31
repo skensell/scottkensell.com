@@ -42,7 +42,7 @@ Honestly the sheer number of people I hear talking about FP is enough to spark m
 </p>
 
 <p>
-But why should I care about FP if my focus is on Objective-C and iOS development?
+But why should I care about FRP if my focus is on Objective-C and iOS development?
 </p>
 <p>
 My main motivation is to be able to use the <a target="_blank" href="https://github.com/ReactiveCocoa/ReactiveCocoa">Reactive Cocoa</a> library. At Prezi we are using it so much now that our experienced Objective-C developers seem to be writing almost exclusively in Reactive Cocoa.  Most of our teams are adopting <a target="_blank" href="http://en.wikipedia.org/wiki/Reactive_extensions">reactive programming</a> principles nowadays saying that it leads to cleaner, more <a target="_blank" href="http://en.wikipedia.org/wiki/Declarative_programming">declarative</a> code. I was a little surprised to find out that even our backend API team is using reactive programming, thereby quashing my assumption that such a paradigm is only useful in client code.
@@ -111,7 +111,7 @@ The functional syntax at first sight has a few oddities.
 <div><pre><code>containsCell : Position -> [Position] -> Bool
 containsCell c cells = length (filter (\cell -> sameCell c cell) cells) >= 1</code></pre></div>
 
-<h4 style="text-align: center">Signals</h4>
+<h4 id="signals" style="text-align: center">Signals</h4>
 
 <p>
 Wrapping my brain around signals and the transformations you can apply to them was probably the most difficult part of the week. Here's what I managed to understand:
@@ -171,7 +171,7 @@ I really liked Elm and would be glad to work more with it. But I think the more 
 <p>
 <a target="_blank" href="http://elm-lang.org/learn/What-is-FRP.elm">Evan's explanation of FRP</a>
 <br/>
-<a target="_blank" href="https://gist.github.com/skensell/66f18bdc1c2b604ab93f">complete code for my snake game</a>
+<a target="_blank" href="https://gist.github.com/skensell/66f18bdc1c2b604ab93f">complete code for my snake game</a> which you can mess with at <a target="_blank" href="http://elm-lang.org/try">elm-lang.org/try</a>
 </p>
 
 

@@ -5,11 +5,11 @@ Slug: course-review-cs193p-iphone-development
 Author: Scott Kensell
 Summary: My opinions and what I took from the course *CS193P iPhone Application Development* taught by Paul Haggerty.
 
-If you're interested in learning iOS development, skip the tutorials, skip the official documentation, and go straight to <a target="_blank" href="http://www.stanford.edu/class/cs193p/cgi-bin/drupal/">this Stanford course</a>. It's aimed at XCode 5 and iOS 7, but I think he (Paul Haggerty) teaches a new version of the course each Fall so its not likely to ever be out of date.
+If you're interested in learning iOS development, skip the tutorials, skip the official documentation, and go straight to <a target="_blank" href="http://www.stanford.edu/class/cs193p/cgi-bin/drupal/">this Stanford course</a>. It's aimed at XCode 5 and iOS 7, but I think he (Paul Haggerty) teaches a new version of the course each Fall so it's not likely to ever be out of date.
 
 #### Course Material
 
-There are 18 75-minute videos jam-packed with useful information. In almost every class he does a demo where he does lots of fast-paced live coding.  The first half of the class is typically slides.  In case you missed something on the slides though, he has *extremely* detailed and annotated pdfs of the slides. There are 6 homework assignments and 1 final project. 
+There are 18 75-minute videos jam-packed with useful information. In almost every class he does a demo where he does lots of live coding.  The first half of the class is typically slides.  In case you missed something on the slides though, he has *extremely* detailed and annotated pdfs of the slides. There are 6 homework assignments and 1 final project. 
 
 All videos and slides are downloadable from iTunesU while the demos are downloadable from the class's website.
 
@@ -21,7 +21,7 @@ I also have <a target="_blank" href="https://github.com/skensell/stanford-ios-co
 
 #### Prerequisites
 
-Some Object-Oriented Programming experience is helpful and probably necessary. I had some from my Python web-development background and that was enough.
+Some Object-Oriented Programming experience is helpful and probably necessary. I had some from my Python web-development background and that was enough. You don't need to know anything about Objective-C or XCode.
 
 #### What you will do
 
@@ -44,11 +44,15 @@ You will become very comfortable with
 
 #### Critique
 
-Looking back on the course, I've realized that it contains a whole lot of information, but not  all of it is so relevant to my work at Prezi. The last 4 or 5 classes are more like a random collection of topics which I think are better viewed when you actually need to know that information. For example, you're not likely to remember how to use MapKit until you've created an app which uses it.
+In general I thought the course was terrific. I have never seen a professor prepare this much for a class.  And it's comforting to know that someone has put this much effort into optimizing the class.
+
+If I'm to say just a few complaints about it, looking back I've realized that it contains a whole lot of information, but not  all of it is so relevant to my work at Prezi. The last 4 or 5 classes are more like a random collection of topics which I think are better viewed when you actually need to know that information. For example, you're not likely to remember how to use MapKit until you've created an app which uses it.
 
 Also, there are a few things not mentioned in the course.
 
-- CocoaPods is a community-driven package manager for Objective-C which really eases the integration of 3rd party stuff.
-- AFNetworking is one example of an awesome 3rd party library which provides a much more straightforward way of managing network requests than with the standard NSURL stuff. The creator of AFNetworking also maintains a helpful (but somewhat advanced) blog about Objective-C at nshipster.com.
-- ReactiveCocoa is another example of a 3rd party library which supports a different manner of design patterns than the traditional OOP stuff taught in the class. This is a slightly more advanced topic though.  See my blog post about FRP.
+- <a target="_blank" href="http://cocoapods.org/">CocoaPods</a> is a community-driven package manager for Objective-C which really eases the integration of 3rd party stuff.
+- <a target="_blank" href="https://github.com/AFNetworking/AFNetworking">AFNetworking</a> is one example of an awesome 3rd party library which provides a much more straightforward way of managing network requests than with the standard NSURL stuff. The creator of AFNetworking also maintains a helpful (but somewhat advanced) blog about Objective-C at <a target="_blank" href="http://www.nshipster.com">nshipster.com</a>.
+- <a target="_blank" href="https://github.com/ReactiveCocoa/ReactiveCocoa">ReactiveCocoa</a> is another example of a 3rd party library which supports a different manner of design patterns than the traditional OOP stuff taught in the class. This is a slightly more advanced topic though.  See <a href="./fp-virgin-learns-elm.html">my blog post about FRP</a>.
 
+
+The list of 3rd party stuff goes on and on. These are just the ones which I know and use off the top of my head.  
