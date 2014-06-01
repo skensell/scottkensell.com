@@ -1,9 +1,11 @@
 Title: Course review - CS193P iPhone Application Development
-Date: 2014-03-25 22:39
+Date: 2014-03-30 22:39
 Category: Reviews
 Slug: course-review-cs193p-iphone-development
 Author: Scott Kensell
+<!--
 Summary: My opinions and what I took from the course *CS193P iPhone Application Development* taught by Paul Haggerty.
+-->
 
 If you're interested in learning iOS development, skip the tutorials, skip the official documentation, and go straight to <a target="_blank" href="http://www.stanford.edu/class/cs193p/cgi-bin/drupal/">this Stanford course</a>. It's aimed at XCode 5 and iOS 7, but I think he (Paul Haggerty) teaches a new version of the course each Fall so it's not likely to ever be out of date.
 

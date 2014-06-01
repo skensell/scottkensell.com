@@ -4,5 +4,5 @@ Category: Reviews
 Slug: book-review-practical-vim
 Author: Scott Kensell
 Summary: My opinions and what I took from the book *Practical Vim* by Drew Neil.
-
+Status: draft
 
