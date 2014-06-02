@@ -28,3 +28,4 @@ STATIC_PATHS = ['images', 'javascript']
 
 THEME = "/Users/skensell/p/pelican-themes/SoMA2"
 SITESUBTITLE = "SK"
+SITETAGLINE = "a young developer's blog"
