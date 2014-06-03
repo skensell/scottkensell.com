@@ -1,13 +1,13 @@
 Title: About
 
-Because I've only been programming for a few years, I feel like I have lots to learn. 
-As the masses of information come flying at me, every now and then I learn something I think is so useful that I just want to share it with the world. 
-So I created a blog with a very uninspired title. 
-My goal is that at least one noob out there learn at least one useful thing from here.
+Two years into math grad school, I decided I'd like to try my hand at programming.
+After a lot of online courses and books, I learned enough for them to hire me at Prezi where I am now happily coding in the iOS team.
 
-So this is a blog by a noob for noobs.
+As the masses of information come flying at me, every now and then I learn something I think is so useful that I just want to share it with the world.
+Hence, the blog.
+I hope this blog is especially useful for other people trying to change their career path to become a developer.
 
-Officially I'm a junior iOS developer at Prezi. My favorite topics are Python, shell scripting, and Objective-C.
+My favorite topics currently are Python, shell-scripting, and Objective-C/iOS development.
 
 ![Pic of me]({filename}/images/scott-kensell.jpg)
 
