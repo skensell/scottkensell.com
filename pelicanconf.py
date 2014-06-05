@@ -26,6 +26,6 @@ DEFAULT_PAGINATION = False
 
 STATIC_PATHS = ['images', 'javascript']
 
-THEME = "/Users/skensell/p/pelican-themes/SoMA2"
+THEME = "./ignored/pelican-themes/SoMA2"
 SITESUBTITLE = "SK"
 SITETAGLINE = "a developer's blog"
