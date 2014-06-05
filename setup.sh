@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -ex
 
 die(){ echo "ERROR: setup failed. $@" >&2; exit 1; }
 check_command(){ which $1 >/dev/null || die $2; }
@@ -7,11 +7,16 @@ check_command(){ which $1 >/dev/null || die $2; }
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${THIS_DIR}"
 
+[ -d ignored ] && die "You must remove the ignored directory."
+
 check_command virtualenv 'You need to install virtualenv. See http://stackoverflow.com/questions/4324558/whats-the-proper-way-to-install-pip-virtualenv-and-distribute-for-python'
 mkdir -p ignored
 virtualenv ignored/virtualenv
 . ignored/virtualenv/bin/activate
 
+# these flags are stupid and necessary for pycrypto
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
 pip install -r requirements.txt
 
 cd ignored

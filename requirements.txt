@@ -10,7 +10,6 @@ ecdsa==0.10
 feedgenerator==1.7
 paramiko==1.12.2
 pelican==3.3
-pycrypto==2.6.1
 python-dateutil==2.2
 pytz==2013.9
 six==1.5.2
