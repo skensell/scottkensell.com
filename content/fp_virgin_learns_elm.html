@@ -12,7 +12,7 @@
 <body>
 
 <p>
-Sunday evening our CTO writes the following to our developers forum:
+Sunday evening our CTO emails us:
 </p>
 <blockquote>
   Reply to if you want to learn Elm, FP and FRP.
@@ -21,16 +21,22 @@ Sunday evening our CTO writes the following to our developers forum:
 </blockquote>
 
 <p>
+Fast forward one week and Boom! A fully functional snake! (Refresh page to restart).
+</p>
+
+<div id="ScottsSnake" style="margin: 0 auto; width:50%; height:221px; margin-bottom: 10px;"></div>
+
+<p>
 Learning functional programming (FP) and functional reactive programming (FRP) had been on my long-term roadmap anyways. So I figured -- why wait?
 </p>
+
+
 
 <h4 style="text-align: center">Output of the week</h4>
 
 <p>
-My week of functional reactive snake broke down into 2 days adjusting to Elm syntax and the functional style, 2 days of staring confused as my colleagues discussed signal graphs, one evening reading others' code and the Elm documentation, and finally one solid day of writing my own code and refactoring. In the end, I felt like I was starting to get the hang of it, and I was proud that I produced the following game (refresh the page to restart):
+My week of functional reactive snake broke down into 2 days adjusting to Elm syntax and the functional style, 2 days of staring confused as my colleagues discussed signal graphs, one evening reading others' code and the Elm documentation, and finally one solid day of writing my own code and refactoring. In the end, I felt like I was starting to get the hang of it, and I was proud that I produced the game above.
 </p>
-
-<div id="ScottsSnake" style="margin: 0 auto; width:50%; height:221px; margin-bottom: 10px"></div>
 
 <h4 style="text-align: center">Why FP?</h4>
 
@@ -80,9 +86,10 @@ flipDirection direction =
 
 <div>
   <pre><code>drawCell: Color -> Position -> Form
-drawCell color cell = rect 10 10 |> filled color
-                                 |> move (toFloat cell.x*10, toFloat cell.y*10)
-                                 |> move (-92,0)</code></pre>
+drawCell color cell =
+  rect 10 10 |> filled color
+             |> move (toFloat cell.x*10, toFloat cell.y*10)
+             |> move (-92,0)</code></pre>
 </div>
 
 <p>
@@ -105,11 +112,12 @@ The functional syntax at first sight has a few oddities.
 </p>
 
 <p>
-<strong>No for loops, no mutable objects.</strong> It's tough to change your way of thinking from "I'll just create a helper array which I populate using a for loop" to "I'll map my array through this function and then this function." Even doing a simple thing like checking for containment can look a little funny:
+<strong>No for loops, no mutable objects.</strong> It's tough to change your way of thinking from "I'll just create a helper array which I populate using a for loop" to "I'll map my array through this function and then this function." Even doing a simple thing like checking for containment can look a little funny (that is, if you're a noob like me and not aware of convenience methods like <a target="_blank" href="http://library.elm-lang.org/catalog/elm-lang-Elm/0.12.3/List#any">any</a>):
 </p>
 
 <div><pre><code>containsCell : Position -> [Position] -> Bool
-containsCell c cells = length (filter (\cell -> sameCell c cell) cells) >= 1</code></pre></div>
+containsCell c cells =
+  length (filter (\cell -> sameCell c cell) cells) >= 1</code></pre></div>
 
 <h4 id="signals" style="text-align: center">Signals</h4>
 
@@ -150,7 +158,8 @@ This is where the natural separation of concerns comes from.  You write your nor
 main = lift render gameStateSignal
 
 gameStateSignal : Signal GameState
-gameStateSignal = foldp (nextState board) (GameOn startSnake startApple) wrappedSignal
+gameStateSignal =
+  foldp (nextState board) (GameOn startSnake startApple) wrappedSignal
 
 render:GameState -> Element
 render state = case state of
