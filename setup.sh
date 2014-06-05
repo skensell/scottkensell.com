@@ -23,5 +23,6 @@ cd ignored
 git clone git@github.com:skensell/pelican-themes.git -b SoMA2
 git clone https://github.com/s3tools/s3cmd
 
-ln -sf s3cmd/s3cmd "${THIS_DIR}"/s3cmd 
+cd ${THIS_DIR}
+ln -sf ignored/s3cmd/s3cmd "${THIS_DIR}"/s3cmd 
 echo "Do not forget to add AWS credentials to ~/.s3cfg"
