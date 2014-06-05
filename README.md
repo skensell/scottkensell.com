@@ -10,11 +10,7 @@ git clone git@github.com:skensell/scottkensell.com.git
 Use `startserver.sh` to run the developmentserver which will automatically regenerate the output directory when new requests are made.
 Then use `stopserver.sh` to kill it.
 
-When ready to publish do
-
-```bash
-make s3_upload
-```
+When ready to publish do ```publish.sh```.
 
 or to see the production version locally do
 ```bash
