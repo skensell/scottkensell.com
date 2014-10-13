@@ -1,9 +1,9 @@
 Title: My first iOS app: Ten Movies
-Date: 2014-09-28 12:47
+Date: 2014-10-13 21:24
 Category: Objective-C
 Slug: my-first-app
 Author: Scott Kensell
-Summary: From idea to app store, this is the story of my first iOS app.
+Summary: I've finally got an iPhone app on the app store.
 
 Most developers make things to ease people's lives, to solve common problems, and to generally make the world a better place. Choosing the problem to solve can be quite the challenge if you really want to make an impact in the world. Fortunately, my goals aren't so lofty. First, I just want to solve a common problem in *my* world, and maybe in doing so it solves something for you too.
 
@@ -17,22 +17,11 @@ Wouldn't it be great if there were an app which would instantly give me a list o
 
 And so the journey began: File -> New -> Project, project name: *Ten Movies*
 
-Despite the name, it actually gives you an infinitely scrollabe list of movies, but when I added that functionality it was too late to change the name (plus Ten Movies is catchier than Infinite Movies I think). Go ahead and download the app from <a target="_blank" href="">the app store</a> and let me know what you think!
+Despite the name, it actually gives you an infinitely scrollabe list of movies, but when I added that functionality it was too late to change the name (plus Ten Movies is catchier than Infinite Movies I think). Go ahead and download the app from <a target="_blank" href="https://itunes.apple.com/us/app/ten-movies/id916096507?ls=1&mt=8">the app store</a> and let me know what you think!
 
-Here's what it looks like:
+A few screenshots to whet the appetite:
 
-
-#### The Technical Journey
-
-- Movie database source: TMDB. Why? Well documented, and I had used it before. I didn't want to use any of the clients because I wouldn't have as much control over the network stack as I'd like, and it would be trickier for me to hook it up with ReactiveCocoa in the way I wanted.
-- Writing the TDMB client: 
-- How I wanted to use ReactiveCocoa and AFNetworking: include snippet from viewDidLoad.
-- Storing the query preferences in a simple model which sits in NSUserDefaults.
-- Design phase: drew pictures for a few hours.
-- Design phase 2: Improvise in Interface Builder
-- Found a youtube player library on cocoapods.
-- Tweaking stuff: not super proud of it, as it's a pet project which I rarely worked on, the way that I write code changed a lot and I realized I had some bad practicies. But the product manager in me told me I should just get it out there.
-- Submitting to the app store. iOS 8 and iPhone 6 annoyances.
-
-That feeling of completion.
+<img style="width: 300px;" alt="screenshot 1" src="http://a1.mzstatic.com/us/r30/Purple5/v4/7f/4c/d5/7f4cd537-afef-18c0-2632-36d460a92f1d/screen568x568.jpeg"/>
+<img style="width: 300px;" alt="screenshot 1" src="http://a1.mzstatic.com/us/r30/Purple3/v4/7e/79/d5/7e79d53d-b4ac-d692-104c-1ba2cb01caf3/screen568x568.jpeg"/>
+<img style="width: 300px;" alt="screenshot 1" src="http://a2.mzstatic.com/us/r30/Purple5/v4/f9/fd/7d/f9fd7d18-65b6-e9af-c756-b65ab9b6bd24/screen568x568.jpeg"/>
 
