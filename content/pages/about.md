@@ -7,7 +7,7 @@ As the masses of information come flying at me, every now and then I learn somet
 Hence, the blog.
 I hope this blog is especially useful for other people trying to change their career path to become a developer.
 
-My favorite topics currently are Python, shell-scripting, and Objective-C/iOS development.
+My favorite topics currently are Objective-C/iOS development and functional (reactive) programming.
 
 ![Pic of me]({filename}/images/scott-kensell.jpg)
 
